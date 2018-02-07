@@ -1,0 +1,7 @@
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.dll.config
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.dll
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.pdb
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\obj\Release\BanHangDienTu.csproj.CoreCompileInputs.cache
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\obj\Release\BanHangDienTu.dll
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\obj\Release\BanHangDienTu.pdb
