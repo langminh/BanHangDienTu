@@ -14,3 +14,14 @@ C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\obj\Debug\BanHan
 C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.dll
 C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.pdb
+D:\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.dll.config
+D:\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.dll
+D:\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.pdb
+D:\BanHangDienTu\BanHangDienTu\bin\CKEditor.NET.dll
+D:\BanHangDienTu\BanHangDienTu\bin\CKFinder.dll
+D:\BanHangDienTu\BanHangDienTu\bin\CKFinder.pdb
+D:\BanHangDienTu\BanHangDienTu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csprojResolveAssemblyReference.cache
+D:\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csproj.CoreCompileInputs.cache
+D:\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.dll
+D:\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.pdb
