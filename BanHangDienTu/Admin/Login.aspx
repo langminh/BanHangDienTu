@@ -11,7 +11,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Quản lý bán hàng điện tử</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="Assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -57,7 +57,7 @@
                                 <%--</div>--%>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <div>
-                                    <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-lg btn-success btn-block" Text="Login" Width="332px" OnClick="btnLogin_Click" />
+                                    <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-lg btn-success btn-block" Text="Login" OnClick="btnLogin_Click" />
                                 </div>
                             </fieldset>
 

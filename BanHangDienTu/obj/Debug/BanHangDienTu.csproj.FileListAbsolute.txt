@@ -6,3 +6,11 @@ D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.cs
 D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csproj.CoreCompileInputs.cache
 D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.dll
 D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.pdb
+C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.dll.config
+C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.dll
+C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.pdb
+C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.dll
+C:\Users\Admin\Downloads\New folder\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.pdb

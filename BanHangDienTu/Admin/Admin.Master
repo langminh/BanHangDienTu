@@ -268,10 +268,10 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="AddCatalog.aspx"><i class="fa glyphicon-th-list menu-icon"></i>Thêm danh mục</a>
+                                <a href="Catalogs.aspx"><i class="fa glyphicon-th-list menu-icon"></i>Thêm danh mục</a>
                             </li>
                             <li>
-                                <a href="AddProduct.aspx"><i class="fa fa-dropbox menu-icon"></i>Thêm sản phẩm</a>
+                                <a href="Products.aspx"><i class="fa fa-dropbox menu-icon"></i>Thêm sản phẩm</a>
                                 
                             </li>
                             <li>
