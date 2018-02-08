@@ -25,3 +25,14 @@ D:\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csprojResolveAssemblyRefe
 D:\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csproj.CoreCompileInputs.cache
 D:\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.dll
 D:\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.pdb
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.dll.config
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.dll
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\bin\BanHangDienTu.pdb
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\bin\CKEditor.NET.dll
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\bin\CKFinder.dll
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\bin\CKFinder.pdb
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csprojResolveAssemblyReference.cache
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.csproj.CoreCompileInputs.cache
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.dll
+D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\obj\Debug\BanHangDienTu.pdb
