@@ -10,6 +10,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title></title>
+
+    <link href="Assets/css/reponsive.css" rel="stylesheet" />
+
     <!-- Bootstrap Core CSS -->
     <link href="Assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -268,7 +271,10 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="Catalogs.aspx"><i class="fa glyphicon-th-list menu-icon"></i>Thêm danh mục</a>
+                                <a href="Index.aspx"><i class="fa fa-home menu-icon"></i>Trang chủ</a>
+                            </li>
+                            <li>
+                                <a href="Catalogs.aspx"><i class="glyphicon glyphicon-list-alt menu-icon"></i>Thêm danh mục</a>
                             </li>
                             <li>
                                 <a href="Products.aspx"><i class="fa fa-dropbox menu-icon"></i>Thêm sản phẩm</a>

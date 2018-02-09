@@ -110,3 +110,7 @@ a.edit-delete {
 td.last {
     width: 100px;
 }
+
+.panel-body{
+    padding: 0px!important;
+}

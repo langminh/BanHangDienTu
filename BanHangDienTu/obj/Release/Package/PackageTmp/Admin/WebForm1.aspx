@@ -25,6 +25,7 @@
     <form id="form1" runat="server">
         <div>
             <uc1:AddItem ID="AddItem1" runat="server" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Button" />
         </div>
     </form>
 
