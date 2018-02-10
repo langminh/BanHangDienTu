@@ -1670,6 +1670,8 @@
     <Compile Include="Admin\Catalogs.aspx.designer.cs">
       <DependentUpon>Catalogs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Controller\LoginController.cs" />
+    <Compile Include="Admin\Models\User.cs" />
     <Compile Include="Admin\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
