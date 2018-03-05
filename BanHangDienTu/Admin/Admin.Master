@@ -9,8 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    
     <title></title>
-
+<script src="Assets/vendor/jquery/jquery.min.js"></script>
+    <script src="Assets/vendor/jquery/jquery.js"></script>
     <link href="Assets/css/reponsive.css" rel="stylesheet" />
 
     <!-- Bootstrap Core CSS -->
