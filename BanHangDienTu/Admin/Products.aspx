@@ -142,7 +142,7 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <asp:CheckBox ID="ckbRememberMe" runat="server" Text="Remember me" CssClass="checkbox-inline" />
+                                <asp:CheckBox ID="ckbRememberMe" runat="server" Text="Trạng thái" CssClass="checkbox-inline" />
                             </div>
                         </div>
 

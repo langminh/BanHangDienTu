@@ -40,7 +40,7 @@ namespace BanHangDienTu.Admin
             }
             else
             {
-                User user = controller.GetUser(txtUsername.Text, txtPassword.Text);
+                User user = controller.GetUser(txtUsername.Text.Trim(), txtPassword.Text.Trim());
 
                 if(user != null)
                 {

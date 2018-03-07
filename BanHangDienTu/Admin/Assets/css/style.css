@@ -115,3 +115,19 @@ td.last {
     padding: 0px!important;
     padding-top: 15px!important;
 }
+
+/*Check box*/
+input#ContentPlaceHolder1_ckb_Status {
+    margin-right: 10px;
+}
+
+/*Link title*/
+a#ContentPlaceHolder1_list_lnkSortName {
+    color: black;
+    text-align: center;
+}
+/*Link next or privious*/
+.row.text-right.right-btn {
+    margin-right: 0px;
+    margin-left: 0px;
+}
