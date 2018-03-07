@@ -16,14 +16,22 @@
             <!-- /.col-lg-12 -->
         </div>
         <div class="row">
+<<<<<<< HEAD
             <div class="col-md-12">
                 <div class="form-é
                     group">
                     <asp:Button CssClass="form-control btn btn-success" runat="server" ID="btnAdd" Text="Thêm mới mặt hàng"></asp:Button>
+=======
+            <div class="col-md-8">
+                <div class="form-group">
+
+                    <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" CssClass="form-control btn btn-success" Text="Thêm mới danh mục" />
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="table-responsive">
+<<<<<<< HEAD
                         <%--<asp:SqlDataSource ID="dsCatalogs" runat="server"
                             ConnectionString="<%$ ConnectionStrings:QLBakhôngrồinHang %>"
                             ProviderName="System.Data.SqlClient"
@@ -102,12 +110,29 @@
                                 </Fields>
                             </asp:DataPager>
                         </div>
+=======
+                        <asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>
+                        
+                        <asp:Repeater runat="server" ID="rpCatalog" >
+
+                        </asp:Repeater>
+
+                        
+                        <asp:DataPager ID="pager" runat="server" PageSize="5" PagedControlID="catalogList">
+                            <Fields>
+                                <asp:NextPreviousPagerField PreviousPageText="Trang trước" ShowFirstPageButton="false" ShowNextPageButton="false" />
+                                <asp:NumericPagerField />
+                                <asp:NextPreviousPagerField LastPageText="Trang cuối" NextPageText="Trang kế" ShowLastPageButton="false" ShowPreviousPageButton="false" />
+                            </Fields>
+                        </asp:DataPager>
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.row -->
     </div>
+<<<<<<< HEAD
     <asp:Panel ID="Panel1" runat="server" CssClass="modal-dialog">
         <div class="">
 
@@ -139,5 +164,107 @@
     </asp:Panel>
     <act:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="Panel1" TargetControlID="btnAdd" BackgroundCssClass="" CancelControlID="btnClose" OkControlID="btnOk">
     </act:ModalPopupExtender>
+=======
+
+    <!-- Modal Create -->
+    <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 668px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><span id="create-label"></span>Tạo mới danh mục</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">Tên danh mục: </span>
+                                <asp:TextBox ID="txtName" TextMode="SingleLine" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button runat="server" id="btnCreateOk" OnClick="btnCreateOk_Click" CssClass="btn btn-success" Text="Cập nhật"></asp:Button>
+                    <button type="button" class="btn btn-info" id="btn-cancel-create">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Update -->
+    <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 668px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><span id="myModalLabel"></span>Sửa thông tin Catalog</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">Tên danh mục: </span>
+                                <asp:TextBox ID="txtNameCatalog" TextMode="SingleLine" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button runat="server" id="btnOk" OnClick="btnOk_Click" CssClass="btn btn-success" Text="Cập nhật"></asp:Button>
+                    <button type="button" class="btn btn-info" id="btnCancel">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Delete -->
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 668px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><span id="delete-label"></span>Xóa</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="input-group text-center">
+                                <asp:Label runat="server" ID="delete_name" Text="Bạn có chắc chắn muốn xóa danh mục sản phẩm này?"></asp:Label>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button runat="server" id="btnDelete" OnClick="Delete_Click" CssClass="btn btn-success" Text="Xóa"></asp:Button>
+                    <button type="button" class="btn btn-info" id="btn-cancel-delete">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#btnCancel').click(function (e) {
+                e.preventDefault();
+                $('#update').modal('hide');
+            });
+
+            $('#btn-cancel-delete').click(function (e) {
+                e.preventDefault();
+                $('#delete').modal('hide');
+            });
+
+            $('#btn-cancel-create').click(function (e) {
+                e.preventDefault();
+                $('#create').modal('hide');
+            });
+        })
+    </script>
+
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
     <!-- /.container-fluid -->
 </asp:Content>

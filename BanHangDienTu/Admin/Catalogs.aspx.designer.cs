@@ -40,75 +40,132 @@ namespace BanHangDienTu.Admin {
         protected global::System.Web.UI.ScriptManager scriptManager;
         
         /// <summary>
+<<<<<<< HEAD
         /// rpEmployees control.
+=======
+        /// rpCatalog control.
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Repeater rpEmployees;
         
         /// <summary>
         /// list control.
+=======
+        protected global::System.Web.UI.WebControls.Repeater rpCatalog;
+        
+        /// <summary>
+        /// pager control.
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.ListView list;
         
         /// <summary>
         /// dtpArticles control.
+=======
+        protected global::System.Web.UI.WebControls.DataPager pager;
+        
+        /// <summary>
+        /// txtName control.
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.DataPager dtpArticles;
         
         /// <summary>
         /// Panel1 control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txtName;
+        
+        /// <summary>
+        /// btnCreateOk control.
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
         /// hidenID control.
+=======
+        protected global::System.Web.UI.WebControls.Button btnCreateOk;
+        
+        /// <summary>
+        /// txtNameCatalog control.
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.HiddenField hidenID;
         
         /// <summary>
         /// txtName control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txtNameCatalog;
+        
+        /// <summary>
+        /// btnOk control.
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
         /// btnOk control.
+=======
+        protected global::System.Web.UI.WebControls.Button btnOk;
+        
+        /// <summary>
+        /// delete_name control.
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Button btnOk;
         
         /// <summary>
         /// ModalPopupExtender1 control.
+=======
+        protected global::System.Web.UI.WebControls.Label delete_name;
+        
+        /// <summary>
+        /// btnDelete control.
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender1;
+=======
+        protected global::System.Web.UI.WebControls.Button btnDelete;
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
     }
 }

@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -55,10 +56,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ckeditor_aspx\ckeditor_aspx\ckfinder\bin\Debug\CKFinder.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -81,6 +90,7 @@
     <Content Include="Admin\AddCatalogs.aspx" />
     <Content Include="Admin\Admin.Master" />
     <Content Include="Admin\Assets\css\reponsive.css" />
+    <Content Include="Admin\Assets\stytle.css" />
     <Content Include="Admin\Assets\vendor\bootstrap-social\bootstrap-social.less" />
     <Content Include="Admin\Assets\vendor\bootstrap-social\bootstrap-social.scss" />
     <Content Include="Admin\Assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -1674,10 +1684,13 @@
     <Compile Include="Admin\Catalogs.aspx.designer.cs">
       <DependentUpon>Catalogs.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Admin\Controller\CatalogController.cs" />
     <Compile Include="Admin\Controller\LoginController.cs" />
     <Compile Include="Admin\Models\CatalogModel.cs" />
     <Compile Include="Admin\Models\User.cs" />
+=======
+>>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
     <Compile Include="Admin\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1692,8 +1705,11 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Code\CommonContants.cs" />
-    <Compile Include="Admin\Code\UserSession.cs" />
+    <Compile Include="Entity\Dao\CatalogDao.cs" />
+    <Compile Include="Entity\Dao\OrderDao.cs" />
+    <Compile Include="Entity\Dao\ProductDao.cs" />
+    <Compile Include="Helper\CommonContants.cs" />
+    <Compile Include="Helper\UserSession.cs" />
     <Compile Include="Admin\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1757,6 +1773,14 @@
     <Compile Include="Client\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Dao\UserDao.cs" />
+    <Compile Include="Entity\EF\Catalog.cs" />
+    <Compile Include="Entity\DataEntities.cs" />
+    <Compile Include="Entity\EF\Order.cs" />
+    <Compile Include="Entity\EF\Product.cs" />
+    <Compile Include="Entity\EF\Role.cs" />
+    <Compile Include="Entity\EF\User.cs" />
+    <Compile Include="Helper\MD5Encryster.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -1764,8 +1788,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\AddItem\" />
+    <Folder Include="Admin\Code\" />
+    <Folder Include="Admin\Controller\" />
     <Folder Include="Admin\Shared\" />
     <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

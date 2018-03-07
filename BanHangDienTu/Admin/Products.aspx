@@ -69,11 +69,11 @@
                                     <td><% Response.Write("Chi tiet");%> </td>
                                     <td><% Response.Write((i % 2) == 0 ? "Con hang" : "Het hang"); %> </td>
                                     <td class="last">
-                                        <a href="#" id="btnUpdate" data-tonge="" data-value="<%= i %>" data-toggle="modal" data-target="#login-modal" class="edit-delete">Sửa</a>|<a data-toggle="modal" data-target="#login-modal" href="#" id="btnDelete" data-value="<%= i %>" class="edit-delete">Xóa</a>
+                                        <a href="#" id="btnUpdate" data-tonge="" runnat="server" data-value="<%= i %>" data-toggle="modal" data-target="#login-modal" class="edit-delete">Sửa</a>|<a data-toggle="modal" data-target="#login-modal" href="#" id="btnDelete" data-value="<%= i %>" class="edit-delete">Xóa</a>
                                     </td>
                                 </tr>
                                 <%} %>
-                            </tbody>
+                            </tbody>u
                         </table>
                     </div>
                 </div>
@@ -81,7 +81,6 @@
         </div>
     </div>
     <!-- /.row -->
-    </div>
     <!-- /.container-fluid -->
 
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">

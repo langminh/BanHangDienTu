@@ -19,3 +19,17 @@ D:\BTL\QLBanHangDT\BanHangDienTu\BanHangDienTu\obj\Release\BanHangDienTu.pdb
 D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\CKFinder.dll
 D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\CKFinder.pdb
 D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\obj\Release\BanHangDienTu.csprojResolveAssemblyReference.cache
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\BanHangDienTu.dll.config
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\BanHangDienTu.dll
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\BanHangDienTu.pdb
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\CKFinder.dll
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\CKFinder.pdb
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\obj\Release\BanHangDienTu.csprojResolveAssemblyReference.cache
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\obj\Release\BanHangDienTu.csproj.CoreCompileInputs.cache
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\obj\Release\BanHangDienTu.dll
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\obj\Release\BanHangDienTu.pdb
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\EntityFramework.dll
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\EntityFramework.SqlServer.dll
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\EntityFramework.xml
+E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\EntityFramework.SqlServer.xml

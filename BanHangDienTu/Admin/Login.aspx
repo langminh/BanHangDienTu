@@ -21,7 +21,7 @@
 
     <!-- Custom CSS -->
     <link href="Assets/dist/css/sb-admin-2.css" rel="stylesheet" />
-
+    <link href="Assets/stytle.css" rel="stylesheet" />
     <!-- Custom Fonts -->
     <link href="Assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
@@ -37,23 +37,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
+                <div class="login-panel panel panel-default text-center">
                     <div class="panel-heading">
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
+                    <asp:Label runat="server" ID="msg" CssClass="text-center text-danger" Visible="false"></asp:Label>
                     <div class="panel-body">
                         <form id="form1" runat="server" role="form">
 
                             <fieldset>
+
                                 <div class="form-group">
                                     <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                        <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
-                                        <%--<input class="form-control" placeholder="Password" name="password" type="password" value=""/>--%>
+                                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
+                                    <%--<input class="form-control" placeholder="Password" name="password" type="password" value=""/>--%>
                                 </div>
                                 <%--<div class="checkbox">--%>
-                                    <asp:CheckBox ID="ckbRememberMe" runat="server" Text="Remember me" CssClass="checkbox-inline" />
+                                <asp:CheckBox ID="ckbRememberMe" runat="server" Text="Remember me" CssClass="checkbox-inline" />
                                 <%--</div>--%>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <div>
