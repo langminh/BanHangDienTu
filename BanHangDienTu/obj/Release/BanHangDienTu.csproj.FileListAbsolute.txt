@@ -33,3 +33,17 @@ E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\EntityFramework.
 E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\EntityFramework.SqlServer.dll
 E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\EntityFramework.xml
 E:\Code\Thư mục Mới\BanHangDienTu-master\BanHangDienTu\bin\EntityFramework.SqlServer.xml
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\BanHangDienTu.dll.config
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\BanHangDienTu.dll
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\BanHangDienTu.pdb
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\CKFinder.dll
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\EntityFramework.dll
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\EntityFramework.SqlServer.dll
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\CKFinder.pdb
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\EntityFramework.xml
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\EntityFramework.SqlServer.xml
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\obj\Release\BanHangDienTu.csprojResolveAssemblyReference.cache
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\obj\Release\BanHangDienTu.csproj.CoreCompileInputs.cache
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\obj\Release\BanHangDienTu.dll
+C:\Users\langm\Documents\Code\Code\BanHangDienTu\obj\Release\BanHangDienTu.pdb

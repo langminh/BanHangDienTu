@@ -13,15 +13,6 @@ namespace BanHangDienTu.Admin {
     public partial class AddCatalog {
         
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
         /// btnAdd control.
         /// </summary>
         /// <remarks>
@@ -40,132 +31,102 @@ namespace BanHangDienTu.Admin {
         protected global::System.Web.UI.ScriptManager scriptManager;
         
         /// <summary>
-<<<<<<< HEAD
-        /// rpEmployees control.
-=======
-        /// rpCatalog control.
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
+        /// catalogList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-        protected global::System.Web.UI.WebControls.Repeater rpEmployees;
-        
-        /// <summary>
-        /// list control.
-=======
-        protected global::System.Web.UI.WebControls.Repeater rpCatalog;
+        protected global::System.Web.UI.WebControls.ListView catalogList;
         
         /// <summary>
         /// pager control.
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-        protected global::System.Web.UI.WebControls.ListView list;
-        
-        /// <summary>
-        /// dtpArticles control.
-=======
         protected global::System.Web.UI.WebControls.DataPager pager;
         
         /// <summary>
         /// txtName control.
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-        protected global::System.Web.UI.WebControls.DataPager dtpArticles;
-        
-        /// <summary>
-        /// Panel1 control.
-=======
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
         /// btnCreateOk control.
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-        
-        /// <summary>
-        /// hidenID control.
-=======
         protected global::System.Web.UI.WebControls.Button btnCreateOk;
         
         /// <summary>
-        /// txtNameCatalog control.
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
+        /// updateModal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-        protected global::System.Web.UI.WebControls.HiddenField hidenID;
+        protected global::System.Web.UI.UpdatePanel updateModal;
         
         /// <summary>
-        /// txtName control.
-=======
-        protected global::System.Web.UI.WebControls.TextBox txtNameCatalog;
-        
-        /// <summary>
-        /// btnOk control.
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
+        /// txtCatalogID_Update control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.HiddenField txtCatalogID_Update;
+        
+        /// <summary>
+        /// txtCatalogName_Update control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCatalogName_Update;
         
         /// <summary>
         /// btnOk control.
-=======
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnOk;
+        
+        /// <summary>
+        /// deleteModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel deleteModal;
         
         /// <summary>
         /// delete_name control.
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-        protected global::System.Web.UI.WebControls.Button btnOk;
-        
-        /// <summary>
-        /// ModalPopupExtender1 control.
-=======
         protected global::System.Web.UI.WebControls.Label delete_name;
         
         /// <summary>
         /// btnDelete control.
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender1;
-=======
         protected global::System.Web.UI.WebControls.Button btnDelete;
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
     }
 }

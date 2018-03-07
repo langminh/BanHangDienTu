@@ -1,6 +1,4 @@
-﻿using BanHangDienTu.Admin.Controller;
-using BanHangDienTu.Admin.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,26 +13,8 @@ namespace BanHangDienTu.Admin
 {
     public partial class AddCatalog : System.Web.UI.Page
     {
-        private CatalogController catalog = new CatalogController();
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            
-            //if (!IsPostBack)
-            //{
-                
-                list.DataSource = catalog.GetListCatalog();
-                list.DataBind();
-            //}
-        }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-=======
             if (!Page.IsPostBack)
             {
                 FillData();
@@ -88,7 +68,7 @@ namespace BanHangDienTu.Admin
 
         protected void btnOk_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnCreateOk_Click(object sender, EventArgs e)
@@ -100,7 +80,6 @@ namespace BanHangDienTu.Admin
         {
             string csName = "CreateScript";
             Type csType = this.GetType();
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
 
             ClientScriptManager cs = Page.ClientScript;
             if (!cs.IsStartupScriptRegistered(csType, csName))
@@ -109,6 +88,33 @@ namespace BanHangDienTu.Admin
                 csText.Append("<script> $(document).ready(function(){$('#create').modal({ backdrop: 'static', keyboard: false, show: true });});</script>");
                 cs.RegisterStartupScript(csType, csName, csText.ToString());
             }
+        }
+
+        protected void catalogList_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            if (e.CommandName == "UpdateItem")
+            {
+                string catalogID = e.CommandArgument.ToString();
+                Catalog catalog = CatalogDao.Instance.GetCatalog(int.Parse(catalogID));
+                txtCatalogID_Update.Value = catalog.CatalogID + "";
+                txtCatalogName_Update.Text = catalog.Name;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "myModal", "$('#modalUpdate').modal('show');", true);
+                updateModal.Update();
+            }
+            else if (e.CommandName == "DeleteItem")
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "myModal", "$('#modalDelete').modal('show');", true);
+                updateModal.Update();
+            }
+        }
+
+        protected void catalogList_ItemEditing(object sender, ListViewEditEventArgs e)
+        {
+
+        }
+
+        protected void catalogList_ItemUpdating(object sender, ListViewUpdateEventArgs e)
+        {
         }
     }
 }

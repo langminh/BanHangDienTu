@@ -38,14 +38,8 @@ namespace BanHangDienTu.Admin
             }
             else
             {
-<<<<<<< HEAD
-                User user = controller.GetUser(txtUsername.Text.Trim(), txtPassword.Text.Trim());
-
-                if(user != null)
-=======
                 int check = UserDao.Instance.CheckUser(txtUsername.Text, txtPassword.Text.GetMD5());
                 if (check == 1)
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
                 {
                     User user = UserDao.Instance.GetUser(txtUsername.Text);
                     userSession.UserName = user.UserName;

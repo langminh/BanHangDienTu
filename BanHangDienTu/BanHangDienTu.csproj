@@ -45,9 +45,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <HintPath>..\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
-    </Reference>
     <Reference Include="CKEditor.NET, Version=3.6.2.0, Culture=neutral, PublicKeyToken=e379cdf2f8354999, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ckeditor_aspx\ckeditor_aspx\ckeditor\bin\CKEditor.NET.dll</HintPath>
@@ -902,7 +899,6 @@
     <Content Include="Admin\ckfinder\userfiles\images\banner-doanhnghiep.jpg" />
     <Content Include="Admin\ckfinder\userfiles\_thumbs\Images\banner-doanhnghiep.jpg" />
     <Content Include="Admin\WebForm1.aspx" />
-    <Content Include="Admin\WebForm2.aspx" />
     <Content Include="bin\BanHangDienTu.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
@@ -1684,13 +1680,6 @@
     <Compile Include="Admin\Catalogs.aspx.designer.cs">
       <DependentUpon>Catalogs.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Admin\Controller\CatalogController.cs" />
-    <Compile Include="Admin\Controller\LoginController.cs" />
-    <Compile Include="Admin\Models\CatalogModel.cs" />
-    <Compile Include="Admin\Models\User.cs" />
-=======
->>>>>>> bbfa43aa866bc22b359c16a14d61a223b53eaf40
     <Compile Include="Admin\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1751,13 +1740,6 @@
     </Compile>
     <Compile Include="Admin\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Client\Client.Master.cs">
       <DependentUpon>Client.Master</DependentUpon>
