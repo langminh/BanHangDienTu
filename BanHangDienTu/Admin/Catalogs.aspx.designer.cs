@@ -49,13 +49,22 @@ namespace BanHangDienTu.Admin {
         protected global::System.Web.UI.WebControls.DataPager pager;
         
         /// <summary>
-        /// txtName control.
+        /// HiddenField1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        
+        /// <summary>
+        /// txtCreateCatalog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCreateCatalog;
         
         /// <summary>
         /// btnCreateOk control.
@@ -110,6 +119,15 @@ namespace BanHangDienTu.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel deleteModal;
+        
+        /// <summary>
+        /// txtCatalogID_Delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField txtCatalogID_Delete;
         
         /// <summary>
         /// delete_name control.

@@ -47,3 +47,7 @@ C:\Users\langm\Documents\Code\Code\BanHangDienTu\obj\Release\BanHangDienTu.cspro
 C:\Users\langm\Documents\Code\Code\BanHangDienTu\obj\Release\BanHangDienTu.csproj.CoreCompileInputs.cache
 C:\Users\langm\Documents\Code\Code\BanHangDienTu\obj\Release\BanHangDienTu.dll
 C:\Users\langm\Documents\Code\Code\BanHangDienTu\obj\Release\BanHangDienTu.pdb
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\EntityFramework.dll
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\EntityFramework.SqlServer.dll
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\EntityFramework.xml
+D:\BTL\BTL_TKCSDL_TrenWeb\BanHangDienTu\BanHangDienTu\bin\EntityFramework.SqlServer.xml

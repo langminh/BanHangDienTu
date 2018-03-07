@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Catalogs.aspx.cs" Inherits="BanHangDienTu.Admin.AddCatalog" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="Assets/vendor/bootstrap/js/bootstrap-notify.js"></script>
+    <script src="Assets/vendor/bootstrap/js/bootstrap-notify.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Page Content -->
@@ -40,9 +42,9 @@
                                     <td><%# Container.DataItemIndex + 1 %></td>
                                     <td><%# Eval("Name") %></td>
                                     <td class="last">
-                                        <asp:LinkButton runat="server" CommandName="UpdateItem" CommandArgument='<%#Eval("CatalogID") %>' CssClass="edit-delete" Text="Sửa" ID="Update" OnClick="Update_Click"></asp:LinkButton>
+                                        <asp:LinkButton runat="server" CommandName="UpdateItem" CommandArgument='<%#Eval("CatalogID") %>' CssClass="edit-delete" Text="Sửa" ID="Update"></asp:LinkButton>
                                         | 
-                                        <asp:LinkButton runat="server" CommandName="DeleteItem" CommandArgument='<%#Eval("CatalogID") %>' CssClass="edit-delete" Text="Xóa" ID="Delete" OnClick="Delete_Click"></asp:LinkButton>
+                                        <asp:LinkButton runat="server" CommandName="DeleteItem" CommandArgument='<%#Eval("CatalogID") %>' CssClass="edit-delete" Text="Xóa" ID="Delete"></asp:LinkButton>
                                     </td>
                                     <%--<td class="last"><asp:HyperLink href="#" class="edit-delete" runat="server" id="<%# Eval("CatalogID") %>" onclick="Update();"><%# Eval("CatalogID") %></asp:HyperLink>|<a runat="server" href="#" class="edit-delete">Xóa</a></td>--%>
                                 </tr>
@@ -75,11 +77,14 @@
                     <div class="input-group">
                         <div class="col-md-12 col-sm-12">
                             <div class="input-group">
-                                <span class="input-group-addon">Tên danh mục: </span>
-                                <asp:TextBox ID="txtName" TextMode="SingleLine" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:HiddenField runat="server" ID="HiddenField1" />
                             </div>
                             <br />
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Tên danh mục:</label>
+                        <asp:TextBox ID="txtCreateCatalog" TextMode="SingleLine" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -106,8 +111,6 @@
                                     <div class="input-group">
                                         <asp:HiddenField runat="server" ID="txtCatalogID_Update" />
                                     </div>
-
-
                                     <br />
                                 </div>
                             </div>
@@ -117,7 +120,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <asp:Button runat="server" ID="btnOk" OnClick="btnOk_Click" CssClass="btn btn-success" Text="Cập nhật"></asp:Button>
+                            <asp:Button runat="server" ID="btnOk" OnClick="Update_Click" CssClass="btn btn-success" Text="Cập nhật"></asp:Button>
                             <button type="button" class="btn btn-info" id="btnCancel" data-dismiss="modal">Hủy</button>
                         </div>
                     </div>
@@ -127,7 +130,7 @@
     </div>
 
     <!-- Modal Delete -->
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <asp:UpdatePanel ID="deleteModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                 <ContentTemplate>
@@ -139,6 +142,10 @@
                         <div class="modal-body">
                             <div class="input-group">
                                 <div class="col-md-12 col-sm-12">
+                                    <div class="input-group">
+                                        <asp:HiddenField runat="server" ID="txtCatalogID_Delete" />
+                                    </div>
+                                    <br />
                                     <div class="input-group text-center">
                                         <asp:Label runat="server" ID="delete_name" Text="Bạn có chắc chắn muốn xóa danh mục sản phẩm này?"></asp:Label>
                                     </div>
