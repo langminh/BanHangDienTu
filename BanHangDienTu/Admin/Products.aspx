@@ -4,11 +4,16 @@
 
 <%@ Register Src="AddItem.ascx" TagName="AddItem" TagPrefix="uc1" %>
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="Assets/stytle.css" rel="stylesheet" />
     <script src="Assets/vendor/jquery/jquery.min.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            width: 300px;
+            height: 245px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Page Content -->
@@ -20,62 +25,83 @@
             <!-- /.col-lg-12 -->
         </div>
         <div class="row">
-            <div class="form-row">
-                <div class="form-group col-md-6 col-sm-6 col-xs-4">
-                    <asp:TextBox runat="server" ID="txtSearch" CssClass="form-control"></asp:TextBox>
-
-                </div>
-                <div class="form-group col-md-2 col-sm-2 col-xs-2">
-                    <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-success" Text="Tìm kiếm" />
-                </div>
-                <div class="form-group col-md-4 col-sm-4 col-xs-4">
-                    <a href="#" data-toggle="modal" class="btn btn-primary" data-target="#login-modal">Thêm mới mặt hàng</a>
-                </div>
+            <div class="form-group col-md-3 col-sm-3 col-xs-3">
+                <label for="ContentPlaceHolder1_cbxCatalog">Lọc theo:</label>
+                <asp:DropDownList runat="server" ID="cbxCatalog" CssClass="btn btn-primary dropdown-toggle" DataTextField="Name" DataValueField="CatalogID" OnSelectedIndexChanged="cbxCatalog_SelectedIndexChanged">
+                </asp:DropDownList>
+            </div>
+            <div class="form-group col-md-2">
+                <asp:Button ID="btnFilter" runat="server" CssClass="btn btn-success form-control" Text="Lọc" />
+            </div>
+            <div class="form-group col-md-3 col-sm-3 col-xs-3">
+                <%--<label for="ContentPlaceHolder1_txtSearch">Nhập tên sản phẩm:</label>--%>
+                <asp:TextBox runat="server" ID="txtSearch" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2 col-sm-2 col-xs-2">
+                <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-success form-control" Text="Tìm kiếm" />
+            </div>
+            <div class="form-group col-md-2 col-sm-3 col-xs-3">
+                <a href="#" data-toggle="modal" class="btn btn-primary form-control" data-target="#login-modal">Thêm mới mặt hàng</a>
             </div>
         </div>
+
+
+
+
+
         <%-- <uc1:AddItem ID="AddItem1" runat="server" />--%>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel-body">
-                    <div class="table-responsive">
-                        <table width="100%" class="table table-striped table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Danh mục</th>
-                                    <th>Tên hàng</th>
-                                    <th>Giá</th>
-                                    <th>Sale</th>
-                                    <th>Số lượng</th>
-                                    <th>Ảnh</th>
-                                    <th>Mô tả</th>
-                                    <th>Chi tiết</th>
-                                    <th>Trạng thái</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%for (int i = 0; i < 10; i++)
-                                    { %>
-                                <tr>
-                                    <td><% Response.Write(i + 1); %> </td>
-                                    <td><% Response.Write("Danh muc " + (i + 1)); %> </td>
-                                    <td><% Response.Write("Ten hang " + (i + 1)); %> </td>
-                                    <td><% Response.Write(i * 2); %> </td>
-                                    <td><% Response.Write(i * 3); %> </td>
-                                    <td><% Response.Write(i * 5); %> </td>
-                                    <td><% Response.Write("Images"); %> </td>
-                                    <td><% Response.Write("Mo ta"); %> </td>
-                                    <td><% Response.Write("Chi tiet");%> </td>
-                                    <td><% Response.Write((i % 2) == 0 ? "Con hang" : "Het hang"); %> </td>
-                                    <td class="last">
-                                        <a href="#" id="btnUpdate" data-tonge="" runnat="server" data-value="<%= i %>" data-toggle="modal" data-target="#login-modal" class="edit-delete">Sửa</a>|<a data-toggle="modal" data-target="#login-modal" href="#" id="btnDelete" data-value="<%= i %>" class="edit-delete">Xóa</a>
-                                    </td>
-                                </tr>
-                                <%} %>
-                            </tbody>u
-                        </table>
-                    </div>
+                    <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" Width="1284px">
+                        <ItemTemplate>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><%# Eval("Name") %></h3>
+                                </div>
+                                <div class="panel-image">
+                                    <img src="../<%# Eval("Image") %>" class="panel-image-preview" />
+                                </div>
+                                <div class="panel-body">
+                                    <h4>Mô tả:</h4>
+                                    <p><%# Eval("Describe") %></p>
+                                </div>
+                                <div class="panel-footer text-center">
+                                    <a href="#edit"><span class="fa fa-edit"></span></a>
+                                    <a href="#delete"><span class="fa fa-times"></span></a>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:DataList>
+                    <%--                    <asp:ListView ID="ListView1" runat="server" OnPagePropertiesChanging="ListView1_PagePropertiesChanged">
+                        <ItemTemplate>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="panel">
+
+                                    <div class="panel-heading">
+                                        <div class="img-thumbnail">
+                                            <img src="../<%# Eval("Image") %>" />
+                                        </div>
+                                        <div class="panel-title">
+                                            <%# Eval("Name") %>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <%# Eval("Describe") %>
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+
+
+                    </asp:ListView>
+                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1" PageSize="9">
+                        <Fields>
+                            <asp:NextPreviousPagerField PreviousPageText="Trang trước" ShowFirstPageButton="false" ShowNextPageButton="false" />
+                            <asp:NumericPagerField />
+                            <asp:NextPreviousPagerField LastPageText="Trang cuối" NextPageText="Trang kế" ShowLastPageButton="false" ShowPreviousPageButton="false" />
+                        </Fields>
+                    </asp:DataPager>--%>
                 </div>
             </div>
         </div>

@@ -22,6 +22,10 @@ namespace BanHangDienTu.Entity.Dao
             db = new DataEntities();
         }
 
+        public List<Product> GetListProductByCatalog(int catalogID)
+        {
+            return db.Products.Where(x => x.Catalog.CatalogID == catalogID).ToList();
+        }
 
         public List<Product> GetListProduct()
         {
