@@ -3,6 +3,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="Assets/vendor/bootstrap/js/bootstrap-notify.js"></script>
     <script src="Assets/vendor/bootstrap/js/bootstrap-notify.min.js"></script>
+    <style type="text/css">
+        #ContentPlaceHolder1_pager{
+            float:right;
+        }
+        .modal-header, h4, .close {
+            background-color: #5cb85c;
+            color: white !important;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .popupmodal-container{
+            padding:0px;
+            border-radius:5px;
+        }
+
+        .modal-footer {
+            background-color: #f9f9f9;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Page Content -->
@@ -15,9 +35,7 @@
         </div>
         <div class="row">
             <div class="col-md-8">
-                <div class="form-group">
-                    <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" CssClass="form-control btn btn-success" Text="Thêm mới danh mục" />
-                </div>
+      
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -50,6 +68,10 @@
                                 </tr>
                             </ItemTemplate>
                         </asp:ListView>
+                        <div>
+                            <div class="form-group pull-left">
+                                <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" CssClass="form-control btn btn-success" Text="Thêm mới danh mục" />
+                            </div>
                         <asp:DataPager ID="pager" runat="server" PageSize="5" PagedControlID="catalogList">
                             <Fields>
                                 <asp:NextPreviousPagerField PreviousPageText="Trang trước" ShowFirstPageButton="false" ShowNextPageButton="false" />
@@ -57,6 +79,7 @@
                                 <asp:NextPreviousPagerField LastPageText="Trang cuối" NextPageText="Trang kế" ShowLastPageButton="false" ShowPreviousPageButton="false" />
                             </Fields>
                         </asp:DataPager>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,8 +90,8 @@
 
     <!-- Modal Create -->
     <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width: 668px;">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"><span id="create-label"></span>Tạo mới danh mục</h4>
@@ -97,10 +120,10 @@
 
     <!-- Modal Update -->
     <div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-sm"">
             <asp:UpdatePanel ID="updateModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <div class="modal-content" style="width: 668px;">
+                    <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title"><span id="myModalLabel"></span>Sửa thông tin Catalog</h4>
@@ -134,7 +157,7 @@
         <div class="modal-dialog">
             <asp:UpdatePanel ID="deleteModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <div class="modal-content" style="width: 668px;">
+                    <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title"><span id="delete-label"></span>Xóa</h4>

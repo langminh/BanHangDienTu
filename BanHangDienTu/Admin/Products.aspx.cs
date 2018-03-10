@@ -18,46 +18,97 @@ namespace BanHangDienTu.Admin
             if (!Page.IsPostBack)
             {
                 FillData();
+                SetDataToDropDown();
             }
 
         }
 
+        private void SetDataToDropDown()
+        {
+            cbxCatalog.DataSource = CatalogDao.Instance.GetListCatalog();
+            cbxCatalog.DataBind();
+        }
 
         /// <summary>
         /// Fill data từ csdl vào list view
         /// </summary>
         private void FillData()
         {
-            DataList1.DataSource = ProductDao.Instance.GetListProduct();
-            DataList1.DataBind();
-
-            cbxCatalog.Items.Add("===All===");
-            cbxCatalog.DataSource = CatalogDao.Instance.GetListCatalog();
-            cbxCatalog.DataBind();
+            products.DataSource = ProductDao.Instance.GetListProduct();
+            products.DataBind();
         }
 
         protected void cbxCatalog_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int catalogID = int.Parse(cbxCatalog.SelectedValue.ToString());
-            try
-            {
-                DataList1.DataSource = ProductDao.Instance.GetListProductByCatalog(catalogID);
-                DataList1.DataBind();
-            }
-            catch
-            {
+            //int catalogID = int.Parse(cbxCatalog.SelectedValue.ToString());
+            //try
+            //{
+            //    products.DataSource = ProductDao.Instance.GetListProductByCatalog(catalogID);
+            //    products.DataBind();
+            //}
+            //catch
+            //{
 
-            }
+            //}
         }
 
-        protected void btnFilter_Click(object sender, EventArgs e)
+
+
+        protected void products_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
+            if (e.CommandName == "UpdateItem")
+            {
+                string productID = e.CommandArgument.ToString();
+                Product product = ProductDao.Instance.GetProduct(int.Parse(productID));
+                txtProduct_ID.Text = product.ProductID + "";
+                txtName_Update.Text = product.Name;
+                txtDescribe_Update.Text = product.Describe;
+                txtContent_Update.Text = product.Content;
+                txtSale_Update.Text = product.Sale + "";
+                txtPrice_Update.Text = product.Price + "";
+                txtAmount_Update.Text = product.Amount + "";
+                txtContent_Update.Text = product.Content;
+                productImage.Src = "../" + product.Image;
+
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "update", "$('#update').modal('show');", true);
+
+                
+
+                updateModal.Update();
+                catalogList.DataSource = CatalogDao.Instance.GetListCatalog();
+                catalogList.DataBind();
+                catalogList.SelectedValue = catalogList.Items.FindByText(product.Catalog.Name).Value;
+
+            }
+            else if (e.CommandName == "DeleteItem")
+            {
+                //Response.Write("Chạy update");
+                //string catalogID = e.CommandArgument.ToString();
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "update", "$('#update').modal('show');", true);
+                //updateModal.Update();
+            }
         }
 
-        //protected void ListView1_PagePropertiesChanged(object sender, PagePropertiesChangingEventArgs e)
-        //{
-        //    this.DataPager1.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-        //    FillData();
-        //}
+
+        protected void products_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        {
+            this.pager.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+            FillData();
+        }
+
+        protected void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "update", "$('#update').modal('show');", true);
+            updateModal.Update();
+            catalogList.DataSource = CatalogDao.Instance.GetListCatalog();
+            catalogList.DataBind();
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Product product = new Product();
+            
+        }
     }
 }

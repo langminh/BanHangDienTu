@@ -32,10 +32,14 @@
     <link href="Assets/css/style.css" rel="stylesheet"/>
     <!-- Custom Fonts -->
     <link href="Assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+
+
     <form id="form1" runat="server">
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -310,7 +314,6 @@
         </div>
         <!-- /#page-wrapper -->
     </form>
-
 
     
 

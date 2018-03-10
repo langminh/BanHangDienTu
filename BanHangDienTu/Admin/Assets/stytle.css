@@ -34,3 +34,7 @@
 img.panel-image-preview {
     min-height: 296px;
 }
+
+div#ContentPlaceHolder1_deleteModal {
+    background: #fff;
+}

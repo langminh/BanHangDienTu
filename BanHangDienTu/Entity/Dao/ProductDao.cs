@@ -32,6 +32,11 @@ namespace BanHangDienTu.Entity.Dao
             return db.Products.ToList();
         }
 
+        public Catalog GetCatalog(int ID)
+        {
+            return db.Products.Find(ID).Catalog;
+        }
+
         /// <summary>
         /// cái này dùng sau. để phân trang dữ liệu
         /// </summary>

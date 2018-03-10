@@ -8,10 +8,32 @@
     <link href="Assets/stytle.css" rel="stylesheet" />
     <script src="Assets/vendor/jquery/jquery.min.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
+    <script src="Assets/vendor/bootstrap/js/bootstrap-notify.js"></script>
+    <script src="Assets/vendor/bootstrap/js/bootstrap-notify.min.js"></script>
+    <script src="Assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <style type="text/css">
         .auto-style1 {
             width: 300px;
             height: 245px;
+        }
+
+        td img {
+            width: 50px;
+            height: 50px;
+        }
+        .popupmodal-container{
+            padding:0px;
+            border-radius:5px;
+        }
+        .modal-header, h4, .close {
+            background-color: #5cb85c;
+            color: white !important;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .modal-footer {
+            background-color: #f9f9f9;
         }
     </style>
 </asp:Content>
@@ -27,11 +49,8 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-3 col-xs-3">
                 <label for="ContentPlaceHolder1_cbxCatalog">Lọc theo:</label>
-                <asp:DropDownList runat="server" ID="cbxCatalog" CssClass="btn btn-primary dropdown-toggle" DataTextField="Name" DataValueField="CatalogID" OnSelectedIndexChanged="cbxCatalog_SelectedIndexChanged">
+                <asp:DropDownList runat="server" ID="cbxCatalog" CssClass="btn btn-primary dropdown-toggle" DataTextField="Name" DataValueField="CatalogID" OnSelectedIndexChanged="cbxCatalog_SelectedIndexChanged" AutoPostBack="true">
                 </asp:DropDownList>
-            </div>
-            <div class="form-group col-md-2">
-                <asp:Button ID="btnFilter" runat="server" CssClass="btn btn-success form-control" Text="Lọc" />
             </div>
             <div class="form-group col-md-3 col-sm-3 col-xs-3">
                 <%--<label for="ContentPlaceHolder1_txtSearch">Nhập tên sản phẩm:</label>--%>
@@ -45,63 +64,62 @@
             </div>
         </div>
 
-
-
-
-
-        <%-- <uc1:AddItem ID="AddItem1" runat="server" />--%>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel-body">
-                    <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" Width="1284px">
+                    <asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>
+                    <asp:ListView ID="products" runat="server" OnItemCommand="products_ItemCommand" OnPagePropertiesChanging="products_PagePropertiesChanging">
+                        <LayoutTemplate>
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mã sản phẩm</th>
+                                        <th>Ảnh</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Giá</th>
+                                        <th>Giảm giá</th>
+                                        <th>Số lương</th>
+                                        <th>Trạng thái</th>
+                                        <th>Đã xóa</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                </tbody>
+                            </table>
+                        </LayoutTemplate>
                         <ItemTemplate>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><%# Eval("Name") %></h3>
-                                </div>
-                                <div class="panel-image">
-                                    <img src="../<%# Eval("Image") %>" class="panel-image-preview" />
-                                </div>
-                                <div class="panel-body">
-                                    <h4>Mô tả:</h4>
-                                    <p><%# Eval("Describe") %></p>
-                                </div>
-                                <div class="panel-footer text-center">
-                                    <a href="#edit"><span class="fa fa-edit"></span></a>
-                                    <a href="#delete"><span class="fa fa-times"></span></a>
-                                </div>
-                            </div>
+                            <tr>
+                                <th><%# Container.DataItemIndex + 1 %></th>
+                                <td><%# Eval("ProductID") %></td>
+                                <td>
+                                    <img src='../<%# Eval("Image") %>' /></td>
+                                <td><%# Eval("Name") %></td>
+                                <td><%# Eval("Price") %></td>
+                                <td><%# Eval("Sale") %></td>
+                                <td><%# Eval("Amount") %></td>
+                                <td><%# Eval("Status") %></td>
+                                <th>Đã xóa</th>
+                                <td>
+                                    <asp:LinkButton runat="server" CommandName="UpdateItem" CommandArgument='<%#Eval("ProductID") %>' CssClass="edit-delete" Text="Sửa" ID="Update"></asp:LinkButton>
+                                </td>
+                                <td>
+                                    <asp:LinkButton runat="server" CommandName="DeleteItem" CommandArgument='<%#Eval("ProductID") %>' CssClass="edit-delete" Text="Xóa" ID="LinkButton1"></asp:LinkButton>
+                                </td>
+                            </tr>
                         </ItemTemplate>
-                    </asp:DataList>
-                    <%--                    <asp:ListView ID="ListView1" runat="server" OnPagePropertiesChanging="ListView1_PagePropertiesChanged">
-                        <ItemTemplate>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="panel">
-
-                                    <div class="panel-heading">
-                                        <div class="img-thumbnail">
-                                            <img src="../<%# Eval("Image") %>" />
-                                        </div>
-                                        <div class="panel-title">
-                                            <%# Eval("Name") %>
-                                        </div>
-                                    </div>
-                                    <div class="panel-body">
-                                        <%# Eval("Describe") %>
-                                    </div>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-
-
                     </asp:ListView>
-                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1" PageSize="9">
-                        <Fields>
-                            <asp:NextPreviousPagerField PreviousPageText="Trang trước" ShowFirstPageButton="false" ShowNextPageButton="false" />
-                            <asp:NumericPagerField />
-                            <asp:NextPreviousPagerField LastPageText="Trang cuối" NextPageText="Trang kế" ShowLastPageButton="false" ShowPreviousPageButton="false" />
-                        </Fields>
-                    </asp:DataPager>--%>
+
+                    <asp:DataPager ID="pager" runat="server" PageSize="5" PagedControlID="products">
+                            <Fields>
+                                <asp:NextPreviousPagerField PreviousPageText="Trang trước" ShowFirstPageButton="false" ShowNextPageButton="false" />
+                                <asp:NumericPagerField />
+                                <asp:NextPreviousPagerField LastPageText="Trang cuối" NextPageText="Trang kế" ShowLastPageButton="false" ShowPreviousPageButton="false" />
+                            </Fields>
+                        </asp:DataPager>
                 </div>
             </div>
         </div>
@@ -110,9 +128,12 @@
     <!-- /.container-fluid -->
 
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="popupmodal-container">
-                <h1>Thêm mới mặt hàng</h1>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><span id="delete-label"></span>Thêm mới mặt hàng</h4>
+                </div>
                 <br>
                 <form>
                     <fieldset>
@@ -184,6 +205,102 @@
                     </fieldset>
                 </form>
             </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog  modal-lg">
+            <asp:UpdatePanel ID="updateModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+
+                    <div class="popupmodal-container">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title"><span id="delete-label"></span>Thông tin sản phẩm</h4>
+                        </div>
+                        <br>
+                        <form>
+                            <fieldset>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12 text-center">
+                                        <img runat="server" id="productImage" />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Mã sản phẩm</label>
+                                        <asp:TextBox ID="txtProduct_ID" ReadOnly="true" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="Tên Hàng"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Tên hàng:</label>
+                                        <asp:TextBox ID="txtName_Update" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="Tên Hàng"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Giá:</label>
+                                        <asp:TextBox ID="txtPrice_Update" runat="server" CssClass="form-control" TextMode="Number" placeholder="Giá"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Sales:</label>
+                                        <asp:TextBox ID="txtSale_Update" runat="server" CssClass="form-control" TextMode="Number" placeholder="Sales"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Số lượng:</label>
+                                        <asp:TextBox ID="txtAmount_Update" runat="server" CssClass="form-control" TextMode="Number" placeholder="Số lượng"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Ảnh:</label>
+                                        <asp:FileUpload runat="server" ID="fileUpload1" />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label>Danh mục:</label>
+                                        <asp:DropDownList runat="server" ID="catalogList" DataTextField="Name" DataValueField="CatalogID" CssClass="btn btn-default"></asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label>Mô tả:</label>
+                                        <asp:TextBox ID="txtDescribe_Update" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="Mô tả"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label>Chi tiết sản phẩm:</label>
+                                        <asp:TextBox runat="server" TextMode="MultiLine" CssClass="form-control" ID="txtContent_Update"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <%-- <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <asp:checkbox id="checkbox1" runat="server" text="remember me" cssclass="checkbox-inline" />
+                                    </div>
+                                </div>--%>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-lg btn-success btn-block" Text="Thêm hàng" />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <button class="btn btn-lg btn-success btn-block" data-dismiss="modal" id="btnClose">Đóng</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </div>
     <script>
