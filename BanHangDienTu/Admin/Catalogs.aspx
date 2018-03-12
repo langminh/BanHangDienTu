@@ -14,7 +14,7 @@
             font-size: 20px;
         }
 
-        .popupmodal-container{
+        .modal-dialog{
             padding:0px;
             border-radius:5px;
         }

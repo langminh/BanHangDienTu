@@ -30,7 +30,7 @@ namespace BanHangDienTu.Entity.Dao
         /// <returns></returns>
         public List<Catalog> GetListCatalog()
         {
-            return db.Catalogs.ToList();
+            return db.Catalogs.Where(x => x.IsDelete != false).ToList();
         }
         #endregion
 
@@ -81,6 +81,7 @@ namespace BanHangDienTu.Entity.Dao
             if (result != null)
             {
                 result.Name = catalog.Name;
+                result.Actice = catalog.Actice;
                 try
                 {
                     db.SaveChanges();
@@ -113,7 +114,7 @@ namespace BanHangDienTu.Entity.Dao
             {
                 try
                 {
-                    db.Catalogs.Remove(result);
+                    result.IsDelete = true;
                     db.SaveChanges();
                     return true;
                 }

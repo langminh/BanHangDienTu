@@ -13,12 +13,17 @@ namespace BanHangDienTu.Admin
 {
     public partial class AddProduct : System.Web.UI.Page
     {
+
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                FillData();
+                
                 SetDataToDropDown();
+                int catalogID = int.Parse(cbxCatalog.SelectedValue.ToString());
+                FillData(catalogID);
             }
 
         }
@@ -27,32 +32,40 @@ namespace BanHangDienTu.Admin
         {
             cbxCatalog.DataSource = CatalogDao.Instance.GetListCatalog();
             cbxCatalog.DataBind();
+            cbxCatalog.SelectedIndex = 0;
         }
 
         /// <summary>
         /// Fill data từ csdl vào list view
         /// </summary>
-        private void FillData()
+        private void FillData(int catalogID)
         {
-            products.DataSource = ProductDao.Instance.GetListProduct();
+            products.DataSource = ProductDao.Instance.GetListProductByCatalog(catalogID);
             products.DataBind();
         }
 
         protected void cbxCatalog_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //int catalogID = int.Parse(cbxCatalog.SelectedValue.ToString());
-            //try
-            //{
-            //    products.DataSource = ProductDao.Instance.GetListProductByCatalog(catalogID);
-            //    products.DataBind();
-            //}
-            //catch
-            //{
+            int catalogID = int.Parse(cbxCatalog.SelectedValue.ToString());
+            try
+            {
+                products.DataSource = ProductDao.Instance.GetListProductByCatalog(catalogID);
+                products.DataBind();
+                products.PagePropertiesChanging += Products_PagePropertiesChanging;
+            }
+            catch
+            {
 
-            //}
+            }
         }
 
-
+        private void Products_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        {
+            int catalogID = int.Parse(cbxCatalog.SelectedValue.ToString());
+            this.pager.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+            products.DataSource = ProductDao.Instance.GetListProductByCatalog(catalogID);
+            products.DataBind();
+        }
 
         protected void products_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
@@ -68,7 +81,7 @@ namespace BanHangDienTu.Admin
                 txtPrice_Update.Text = product.Price + "";
                 txtAmount_Update.Text = product.Amount + "";
                 txtContent_Update.Text = product.Content;
-                productImage.Src = "../" + product.Image;
+                productImage.Src = "../Image/" + product.Image;
 
 
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "update", "$('#update').modal('show');", true);
@@ -83,10 +96,10 @@ namespace BanHangDienTu.Admin
             }
             else if (e.CommandName == "DeleteItem")
             {
-                //Response.Write("Chạy update");
-                //string catalogID = e.CommandArgument.ToString();
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "update", "$('#update').modal('show');", true);
-                //updateModal.Update();
+                string catalogID = e.CommandArgument.ToString();
+                txtCatalogID_Delete.Value = CatalogDao.Instance.GetCatalog(int.Parse(catalogID)).CatalogID + "";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "myModal", "$('#modalDelete').modal('show');", true);
+                deleteModal.Update();
             }
         }
 
@@ -94,7 +107,8 @@ namespace BanHangDienTu.Admin
         protected void products_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         {
             this.pager.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-            FillData();
+            int catalogID = int.Parse(cbxCatalog.SelectedValue.ToString());
+            FillData(catalogID);
         }
 
         protected void btnAddProduct_Click(object sender, EventArgs e)
@@ -109,6 +123,11 @@ namespace BanHangDienTu.Admin
         {
             Product product = new Product();
             
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

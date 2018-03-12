@@ -2,8 +2,6 @@
 
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 
-<%@ Register Src="AddItem.ascx" TagName="AddItem" TagPrefix="uc1" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Assets/stytle.css" rel="stylesheet" />
     <script src="Assets/vendor/jquery/jquery.min.js"></script>
@@ -21,10 +19,12 @@
             width: 50px;
             height: 50px;
         }
-        .popupmodal-container{
-            padding:0px;
-            border-radius:5px;
+
+        .popupmodal-container {
+            padding: 0px;
+            border-radius: 5px;
         }
+
         .modal-header, h4, .close {
             background-color: #5cb85c;
             color: white !important;
@@ -60,7 +60,7 @@
                 <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-success form-control" Text="Tìm kiếm" />
             </div>
             <div class="form-group col-md-2 col-sm-3 col-xs-3">
-                <a href="#" data-toggle="modal" class="btn btn-primary form-control" data-target="#login-modal">Thêm mới mặt hàng</a>
+                <asp:Button runat="server" ID="btnAddProduct" CssClass="btn btn-primary form-control" Text="Thêm mới mặt hàng" OnClick="btnAddProduct_Click"></asp:Button>
             </div>
         </div>
 
@@ -96,9 +96,10 @@
                                 <th><%# Container.DataItemIndex + 1 %></th>
                                 <td><%# Eval("ProductID") %></td>
                                 <td>
-                                    <img src='../<%# Eval("Image") %>' /></td>
+                                    
+                                    <img src='../Image/<%# Eval("Image") %>' /></td>
                                 <td><%# Eval("Name") %></td>
-                                <td><%# Eval("Price") %></td>
+                                <td><%#String.Format("{0:n0}", (double)Eval("Price"))%> VNĐ</td>
                                 <td><%# Eval("Sale") %></td>
                                 <td><%# Eval("Amount") %></td>
                                 <td><%# Eval("Status") %></td>
@@ -112,14 +113,20 @@
                             </tr>
                         </ItemTemplate>
                     </asp:ListView>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-md-push-4">
 
-                    <asp:DataPager ID="pager" runat="server" PageSize="5" PagedControlID="products">
-                            <Fields>
-                                <asp:NextPreviousPagerField PreviousPageText="Trang trước" ShowFirstPageButton="false" ShowNextPageButton="false" />
-                                <asp:NumericPagerField />
-                                <asp:NextPreviousPagerField LastPageText="Trang cuối" NextPageText="Trang kế" ShowLastPageButton="false" ShowPreviousPageButton="false" />
-                            </Fields>
-                        </asp:DataPager>
+                                <asp:DataPager ID="pager" runat="server" PageSize="6" PagedControlID="products">
+                                    <Fields>
+                                        <asp:NextPreviousPagerField PreviousPageText="Trang trước" ShowFirstPageButton="false" ShowNextPageButton="false" />
+                                        <asp:NumericPagerField />
+                                        <asp:NextPreviousPagerField LastPageText="Trang cuối" NextPageText="Trang kế" ShowLastPageButton="false" ShowPreviousPageButton="false" />
+                                    </Fields>
+                                </asp:DataPager>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,87 +134,7 @@
     <!-- /.row -->
     <!-- /.container-fluid -->
 
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog modal-lg">
-            <div class="popupmodal-container">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><span id="delete-label"></span>Thêm mới mặt hàng</h4>
-                </div>
-                <br>
-                <form>
-                    <fieldset>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="DropDownList1">Danh mục hàng:</label>
-                                <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server"></asp:DropDownList>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Tên hàng:</label>
-                                <asp:TextBox ID="txtName" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="Tên Hàng"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Giá:</label>
-                                <asp:TextBox ID="txtPrice" runat="server" CssClass="form-control" TextMode="Number" placeholder="Giá"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Sales:</label>
-                                <asp:TextBox ID="txtSales" runat="server" CssClass="form-control" TextMode="Number" placeholder="Sales"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Số lượng:</label>
-                                <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" TextMode="Number" placeholder="Số lượng"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Ảnh:</label>
-                                <asp:FileUpload runat="server" ID="fileUpload" />
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label>Mô tả:</label>
-                                <asp:TextBox ID="txtDescribe" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="Mô tả"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label>Chi tiết sản phẩm:</label>
-                                <asp:TextBox runat="server" TextMode="MultiLine" CssClass="form-control" ID="txtContent"></asp:TextBox>
-                                <%--<CKEditor:CKEditorControl ID="CKEditorControl1" runat="server"></CKEditor:CKEditorControl>--%>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <asp:CheckBox ID="ckbRememberMe" runat="server" Text="Remember me" CssClass="checkbox-inline" />
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-lg btn-success btn-block" Text="Thêm hàng" />
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <a href="#" class="btn btn-lg btn-success btn-block" id="btnClose">Đóng</a>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-
+    <!-- Modal Update-->
     <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog  modal-lg">
             <asp:UpdatePanel ID="updateModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
@@ -288,7 +215,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-lg btn-success btn-block" Text="Thêm hàng" />
+                                        <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-lg btn-success btn-block" Text="Thêm hàng" OnClick="btnAdd_Click"/>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -298,6 +225,41 @@
                                 </div>
                             </fieldset>
                         </form>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
+
+
+        <!-- Modal Delete -->
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <asp:UpdatePanel ID="deleteModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title"><span id="delete-label"></span>Xóa</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="input-group">
+                                        <asp:HiddenField runat="server" ID="txtCatalogID_Delete" />
+                                    </div>
+                                    <br />
+                                    <div class="input-group text-center">
+                                        <asp:Label runat="server" ID="delete_name" Text="Bạn có chắc chắn muốn xóa danh mục sản phẩm này?"></asp:Label>
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_Click" CssClass="btn btn-success" Text="Xóa"></asp:Button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal" id="btn-cancel-delete">Hủy</button>
+                        </div>
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -340,7 +302,7 @@
         ];
 
         config.removeButtons = 'Underline,Subscript,Superscript,Blockquote,About,Styles,Format,Image,Table,HorizontalRule,SpecialChar,Maximize,Source,Cut,Copy,Paste,PasteText,PasteFromWord,Scayt';
-        CKEDITOR.replace('ContentPlaceHolder1_txtContent', config);
+        CKEDITOR.replace('ContentPlaceHolder1_txtContent_Update', config);
 
     </script>
 </asp:Content>

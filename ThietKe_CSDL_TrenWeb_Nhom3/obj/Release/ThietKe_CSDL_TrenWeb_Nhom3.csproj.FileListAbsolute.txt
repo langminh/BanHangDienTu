@@ -1,0 +1,9 @@
+C:\Users\Sev\Documents\GitHub\BanHangDienTu\ThietKe_CSDL_TrenWeb_Nhom3\obj\Release\ThietKe_CSDL_TrenWeb_Nhom3.csprojResolveAssemblyReference.cache
+C:\Users\Sev\Documents\GitHub\BanHangDienTu\ThietKe_CSDL_TrenWeb_Nhom3\obj\Release\ThietKe_CSDL_TrenWeb_Nhom3.csproj.CoreCompileInputs.cache
+C:\Users\Sev\Documents\GitHub\BanHangDienTu\ThietKe_CSDL_TrenWeb_Nhom3\bin\ThietKe_CSDL_TrenWeb_Nhom3.dll.config
+C:\Users\Sev\Documents\GitHub\BanHangDienTu\ThietKe_CSDL_TrenWeb_Nhom3\bin\ThietKe_CSDL_TrenWeb_Nhom3.dll
+C:\Users\Sev\Documents\GitHub\BanHangDienTu\ThietKe_CSDL_TrenWeb_Nhom3\bin\ThietKe_CSDL_TrenWeb_Nhom3.pdb
+C:\Users\Sev\Documents\GitHub\BanHangDienTu\ThietKe_CSDL_TrenWeb_Nhom3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Sev\Documents\GitHub\BanHangDienTu\ThietKe_CSDL_TrenWeb_Nhom3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Sev\Documents\GitHub\BanHangDienTu\ThietKe_CSDL_TrenWeb_Nhom3\obj\Release\ThietKe_CSDL_TrenWeb_Nhom3.dll
+C:\Users\Sev\Documents\GitHub\BanHangDienTu\ThietKe_CSDL_TrenWeb_Nhom3\obj\Release\ThietKe_CSDL_TrenWeb_Nhom3.pdb

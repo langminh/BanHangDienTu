@@ -42,6 +42,8 @@ namespace BanHangDienTu.Entity.EF
 
         public bool Status { get; set; }
 
+        public bool? IsDelete { get; set; }
+
         public virtual Catalog Catalog { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

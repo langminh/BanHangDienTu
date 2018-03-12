@@ -24,28 +24,17 @@ namespace BanHangDienTu.Entity.Dao
 
         public List<Product> GetListProductByCatalog(int catalogID)
         {
-            return db.Products.Where(x => x.Catalog.CatalogID == catalogID).ToList();
+            return db.Products.Where(x => (x.Catalog.CatalogID == catalogID) && x.IsDelete != false).ToList();
         }
 
         public List<Product> GetListProduct()
         {
-            return db.Products.ToList();
+            return db.Products.Where(x => x.IsDelete != false).ToList();
         }
 
         public Catalog GetCatalog(int ID)
         {
             return db.Products.Find(ID).Catalog;
-        }
-
-        /// <summary>
-        /// cái này dùng sau. để phân trang dữ liệu
-        /// </summary>
-        /// <param name="index"></param>
-        /// <param name="pageSize"></param>
-        /// <returns></returns>
-        public List<Product> GetPagingProduct(int index, int pageSize)
-        {
-            return db.Products.ToList();
         }
 
         public Product GetProduct(int ID)
@@ -66,6 +55,7 @@ namespace BanHangDienTu.Entity.Dao
                 return false;
             }
         }
+
         public bool Update(Product product)
         {
             var result = db.Products.Find(product.ProductID);
@@ -81,6 +71,7 @@ namespace BanHangDienTu.Entity.Dao
                 result.Price = product.Price;
                 result.Sale = product.Price;
                 result.Status = product.Status;
+                result.IsDelete = product.IsDelete;
                 try
                 {
                     db.SaveChanges();
@@ -104,7 +95,7 @@ namespace BanHangDienTu.Entity.Dao
             {
                 try
                 {
-                    db.Products.Remove(result);
+                    result.IsDelete = true;
                     db.SaveChanges();
                     return true;
                 }

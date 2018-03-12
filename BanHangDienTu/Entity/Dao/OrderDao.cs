@@ -61,7 +61,6 @@ namespace BanHangDienTu.Entity.Dao
                     result.NameCustomer = order.NameCustomer;
                     result.Phone = order.Phone;
                     result.Status = result.Status;
-
                     db.SaveChanges();
                     return true;
                 }

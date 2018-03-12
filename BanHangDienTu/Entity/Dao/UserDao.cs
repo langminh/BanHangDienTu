@@ -21,18 +21,53 @@ namespace BanHangDienTu.Entity.Dao
             db = new DataEntities();
         }
 
+        public List<User> GetListUser()
+        {
+            return db.Users.Where(x => x.IsDelete != false).ToList();
+        }
+
+        public User GetUser(int ID)
+        {
+            return db.Users.Find(ID);
+        }
+
         public int CheckUser(string userName, string pass)
         {
             var user = db.Users.Where(x => (x.UserName.Equals(userName) || x.Email.Equals(userName))).FirstOrDefault();
             if(user != null)
             {
-                if (user.Password.Equals(pass))
+                if (user.IsLock.HasValue)
                 {
-                    return 1;
+                    if (user.IsLock.Value)
+                    {
+                        //Tai khoan bii khoa
+                        return -2;
+                    }
+                    else
+                    {
+                        if (user.Password.Equals(pass))
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            //sai mat khau
+                            return 0;
+                        }
+                    }
                 }
+                //vi la kieu nullable nen co kha nang tai khoan khong co du lieu ve khoa hay khong
                 else
                 {
-                    return 0;
+                    if (user.Password.Equals(pass))
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        //sai mat khau
+                        return 0;
+                    }
                 }
             }
             else
@@ -72,6 +107,7 @@ namespace BanHangDienTu.Entity.Dao
                 result.Phone = user.Phone;
                 result.Sex = user.Sex;
                 result.Password = user.Password;
+                result.IsLock = user.IsLock;
                 try {
                     db.SaveChanges();
                     return true;
@@ -85,6 +121,25 @@ namespace BanHangDienTu.Entity.Dao
             {
                 return false;
             }
+        }
+
+        public bool Delete(int ID)
+        {
+            var result = db.Users.Find(ID);
+            if(result != null)
+            {
+                try
+                {
+                    result.IsDelete = true;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
         }
     }
 }

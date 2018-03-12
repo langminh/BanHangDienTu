@@ -227,7 +227,7 @@ namespace BanHangDienTu.Admin
                 string catalogID = e.CommandArgument.ToString();
                 txtCatalogID_Delete.Value = CatalogDao.Instance.GetCatalog(int.Parse(catalogID)).CatalogID + "";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "myModal", "$('#modalDelete').modal('show');", true);
-                updateModal.Update();
+                deleteModal.Update();
             }
         }
     }
