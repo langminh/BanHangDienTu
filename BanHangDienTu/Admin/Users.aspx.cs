@@ -75,8 +75,14 @@ namespace BanHangDienTu.Admin
             }
             else if(e.CommandName.Equals("DeleteItem"))
             {
-                
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "delete", "$('#delete').modal('show');", true);
+                deleteModal.Update();
             }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

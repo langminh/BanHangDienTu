@@ -199,6 +199,40 @@
             </div>
         </div>
     </div>
+
+        <!-- Modal Delete -->
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <asp:UpdatePanel ID="deleteModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title"><span id="delete_label"></span>Xóa</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="input-group">
+                                        <asp:HiddenField runat="server" ID="txtCatalogID_Delete" />
+                                    </div>
+                                    <br />
+                                    <div class="input-group text-center">
+                                        <asp:Label runat="server" ID="delete_name" Text="Bạn có chắc chắn muốn xóa danh mục sản phẩm này?"></asp:Label>
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_Click" CssClass="btn btn-success" Text="Xóa"></asp:Button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal" id="btn-cancel-delete">Hủy</button>
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
     <script>
         $(document).ready(function () {
             $('#btnClose').click(function (e) {
